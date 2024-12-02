@@ -16,9 +16,12 @@ export const setup = async (day) => {
 
     const agent = new ProxyAgent()
 
-    // todo: need to oauth authenticate
+    // todo: need to oauth authenticate? for now - must update cookie session value below!
     const response = await fetch(`https://adventofcode.com/2024/day/${day}/input`, {
       agent,
+      headers: {
+        "cookie": "session=53616c7465645f5f896c98a8c4bf2e305d63398cf815a0a98df01bb54e41972a8f14749848749cc633e091d1ce40f15f0f85ca09223253e8558195a01b06aa8a;",
+      },
     })
     const body = await response.text()
     await fs.writeFile(`./day${day}/input`, body, { encoding: 'utf8' })
