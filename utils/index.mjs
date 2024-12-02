@@ -3,6 +3,7 @@ import { dirname } from 'path'
 import fs from 'fs/promises'
 import fsSync from 'fs'
 import fetch from 'node-fetch'
+import { ProxyAgent } from 'proxy-agent'
 import open from 'open'
 
 export const setup = async (day) => {
@@ -13,7 +14,12 @@ export const setup = async (day) => {
   if (!fsSync.existsSync(dir)) {
     await fs.mkdir(dir)
 
-    const response = await fetch(`https://adventofcode.com/2024/day/${day}/input`)
+    const agent = new ProxyAgent()
+
+    // todo: need to oauth authenticate
+    const response = await fetch(`https://adventofcode.com/2024/day/${day}/input`, {
+      agent,
+    })
     const body = await response.text()
     await fs.writeFile(`./day${day}/input`, body, { encoding: 'utf8' })
 
@@ -22,6 +28,7 @@ export const setup = async (day) => {
     await fs.copyFile('./index.mjs.template', `./day${day}/index.mjs`)
 
     await fs.writeFile(`./day${day}/README.md`, `# Day ${day}`, { encoding: 'utf8' })
+    // todo: would be nice to scan the page we open below to fill the readme with instructions
 
     open(`https://adventofcode.com/2024/day/${day}`)
 

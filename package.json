@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "node-fetch": "^3.3.2",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "open": "^10.1.0",
+    "proxy-agent": "^6.4.0"
   }
 }
