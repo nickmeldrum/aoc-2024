@@ -1,0 +1,28 @@
+import * as utils from '../utils/index.mjs'
+
+utils.run(import.meta.url, (day, input, lines) => {
+  const linesSplit = utils.parseSpacedToArrayInAllLines(lines)
+
+  // part 1
+  ////////////////////////
+
+  let total = 0
+
+  for(let i = 0; i < linesSplit.length; i += 1) {
+    const line = linesSplit[i]
+  }
+
+  console.log(total)
+
+  // part 2
+  /////////////////////////////
+  
+
+  let total2 = 0
+
+  for(let i = 0; i < linesSplit.length; i += 1) {
+    const line = linesSplit[i]
+  }
+
+  console.log(total2)
+})

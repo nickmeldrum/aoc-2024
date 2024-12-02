@@ -5,6 +5,7 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
+    "setup": "node setup.mjs",
     "day1": "nodemon day1/index.mjs",
     "day2": "nodemon day2/index.mjs",
     "day3": "nodemon day3/index.mjs",
@@ -17,6 +18,7 @@
     "day10": "nodemon day10/index.mjs"
   },
   "dependencies": {
+    "node-fetch": "^3.3.2",
     "nodemon": "^2.0.20"
   }
 }
