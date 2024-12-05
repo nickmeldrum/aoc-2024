@@ -25,6 +25,7 @@ export const setup = async (day) => {
     })
     const body = await response.text()
     await fs.writeFile(`./day${day}/input`, body, { encoding: 'utf8' })
+    await fs.writeFile(`./day${day}/input_example`, '', { encoding: 'utf8' })
 
     // todo: update package.json
 
@@ -40,8 +41,8 @@ export const setup = async (day) => {
   }
 }
 
-export const readInput = async (day) =>
-  await fs.readFile(`./day${day}/input`, { encoding: 'utf8' })
+export const readInput = async (day, file = 'input') =>
+  await fs.readFile(`./day${day}/${file}`, { encoding: 'utf8' })
 
 export const parseLinesToArray = (input) => {
   const split = input.split('\n')
@@ -58,7 +59,7 @@ export const numberFromCurrentModule = (metaUrl) => {
   return day
 }
 
-export const run = async (url, func) => {
+export const run = async (url, file = 'input', func) => {
   try {
     const day = numberFromCurrentModule(url)
     const input = await readInput(day)

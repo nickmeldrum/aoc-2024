@@ -1,6 +1,6 @@
 import * as utils from '../utils/index.mjs'
 
-utils.run(import.meta.url, (day, input, lines) => {
+utils.run(import.meta.url, 'input', (day, input, lines) => {
   const linesSplit = utils.parseSpacedToArrayInAllLines(lines)
   const left = linesSplit.map(l => l[0])
   const right = linesSplit.map(l => l[3])
