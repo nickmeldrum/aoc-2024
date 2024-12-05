@@ -7,12 +7,14 @@ utils.run(import.meta.url, 'input', (day, input, lines) => {
   ////////////////////////
 
   const part1 = () => {
+    console.time('part1')
     let total = 0
 
     for(let i = 0; i < linesSplit.length; i += 1) {
       const line = linesSplit[i]
     }
 
+    console.timeEnd('part1')
     console.log(`part1: ${total}`)
   }
   part1()
@@ -22,12 +24,14 @@ utils.run(import.meta.url, 'input', (day, input, lines) => {
   
 
   const part2 = () => {
+    console.time('part2')
     let total2 = 0
 
     for(let i = 0; i < linesSplit.length; i += 1) {
       const line = linesSplit[i]
     }
 
+    console.timeEnd('part2')
     console.log(`part2: ${total}`)
   }
   part2()

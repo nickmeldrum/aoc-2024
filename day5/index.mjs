@@ -7,6 +7,7 @@ utils.run(import.meta.url, 'input_example', (day, input, lines) => {
   ////////////////////////
 
   const part1 = () => {
+    console.time('part1')
     let total = 0
 
     const rules = []
@@ -53,6 +54,7 @@ utils.run(import.meta.url, 'input_example', (day, input, lines) => {
     })
    
     // 75,97,47,61,53 becomes 97,75,47,61,53.
+    console.timeEnd('part1')
     console.log(`part1: score = ${total}`)
   }
   part1()
@@ -96,10 +98,6 @@ utils.run(import.meta.url, 'input_example', (day, input, lines) => {
     page = 75
     */
 
-    rules.sort((a, b) => {
-      return parseInt(a[0], 10) - parseInt(b[0], 10)
-    })
-
     do {
       for (let i = 0; i < rules.length; i += 1) {
         const rule = rules[i]
@@ -122,6 +120,7 @@ utils.run(import.meta.url, 'input_example', (day, input, lines) => {
   }
 
   const part2 = () => {
+    console.time('part2')
     let total = 0
 
     const rules = []
@@ -152,6 +151,7 @@ utils.run(import.meta.url, 'input_example', (day, input, lines) => {
       }
     })
    
+    console.timeEnd('part2')
     console.log(`part2: score = ${total}`)
   }
   part2()
