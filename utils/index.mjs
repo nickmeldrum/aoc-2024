@@ -62,7 +62,7 @@ export const numberFromCurrentModule = (metaUrl) => {
 export const run = async (url, file = 'input', func) => {
   try {
     const day = numberFromCurrentModule(url)
-    const input = await readInput(day)
+    const input = await readInput(day, file)
     const lines = parseLinesToArray(input)
     func(day, input, lines)
   } catch (err) {

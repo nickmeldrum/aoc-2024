@@ -25,7 +25,7 @@ utils.run(import.meta.url, 'input', (day, input, lines) => {
 
   const part2 = () => {
     console.time('part2')
-    let total2 = 0
+    let total = 0
 
     for(let i = 0; i < linesSplit.length; i += 1) {
       const line = linesSplit[i]
