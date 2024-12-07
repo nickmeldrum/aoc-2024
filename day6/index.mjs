@@ -3,7 +3,7 @@ import * as utils from '../utils/index.mjs'
 const newLine = (original, index) =>
     original.substring(0, index) + 'X' + original.substring(index + 1)
 
-utils.run(import.meta.url, 'input', (day, input, lines) => {
+utils.run(import.meta.url, 'input_example', (day, input, lines) => {
   const linesSplit = utils.parseSpacedToArrayInAllLines(lines)
 
   // part 1
@@ -11,7 +11,7 @@ utils.run(import.meta.url, 'input', (day, input, lines) => {
 
   const part1 = () => {
     console.time('part1')
-    let total = 0
+    let total = 1
 
 
     const up = '^'
@@ -64,12 +64,14 @@ utils.run(import.meta.url, 'input', (day, input, lines) => {
     const positions = {
     }
 
+    linesSplit[curPosV][0] = newLine(linesSplit[curPosV][0], curPosH)
+
     do {
       // are we outside?
-      if (curDir === up && curPosV < 0) break
-      if (curDir === down && curPosV > height) break
-      if (curDir === left && curPosH < 0) break
-      if (curDir === right && curPosH > width) break
+      if (curDir === up && curPosV <= 0) break
+      if (curDir === down && curPosV >= height - 1) break
+      if (curDir === left && curPosH <= 0) break
+      if (curDir === right && curPosH >= width - 1) break
 
       // move
       if (curDir === up) {
@@ -108,11 +110,11 @@ utils.run(import.meta.url, 'input', (day, input, lines) => {
         }
       }
 
-      console.log(curDir, curPosV, curPosH, curSpot)
-      if (positions[`${curPosV}${curPosH}`] === undefined) {
-        positions[`${curPosV}${curPosH}`] = true
+      //console.log(curDir, curPosV, curPosH, curSpot)
+      if (positions[`${curPosV}:${curPosH}`] === undefined) {
+        positions[`${curPosV}:${curPosH}`] = true
         total += 1
-        //linesSplit[curPosV][0] = newLine(linesSplit[curPosV][0], curPosH)
+        linesSplit[curPosV][0] = newLine(linesSplit[curPosV][0], curPosH)
         //console.log(linesSplit)
       }
     } while (true)
